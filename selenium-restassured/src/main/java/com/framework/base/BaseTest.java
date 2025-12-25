@@ -47,7 +47,7 @@ public class BaseTest {
     public void after(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
             LoggerManager.get().error("TEST FAILED", result.getThrowable());
-            String snapPath=System.getProperty("user.dir")+"/target/reports/screenshots/";
+            String snapPath=System.getProperty("user.dir")+"/test-output/reports/screenshots/";
             base.captureSnap(snapPath+result.getName()+".png");
         }
         LoggerManager.endTest();
