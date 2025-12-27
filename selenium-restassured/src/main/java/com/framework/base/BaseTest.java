@@ -11,7 +11,7 @@ import com.framework.utils.LoggerManager;
 
 public class BaseTest {
 	
-	private BaseClass base;
+	protected BaseClass base;
 	private final String BROWSER_TYPE="CHROME";
 	private final boolean IS_HEADLESS=false;
 	private final String APP_URL="https://automationteststore.com/";
