@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>selenium-restassured</groupId>
-	<artifactId>selenium-restassured</artifactId>
+	<groupId>framework-selenium-restassured</groupId>
+	<artifactId>framework-selenium-restassured</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>selenium-restassured</name>
+	<name>framework-selenium-restassured</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
