@@ -16,13 +16,12 @@ import com.framework.utils.LoggerManager;
 
 public class WebActionsSelenium implements WebActions {
 
-	private WebDriver driver;
+	private WebDriver driver=null;
 	private WebElement element = null;
 	private Actions action = null;
 
 	public WebActionsSelenium(WebDriver driver) {
 		this.driver = driver;
-		action = new Actions(driver);
 	}
 
 	@Override
@@ -193,9 +192,10 @@ public class WebActionsSelenium implements WebActions {
 
 	@Override
 	public void hoverAndClick(String locatorType, String srcLocator, String targetLocator, int maxWaitTime) {
+		action = new Actions(driver);
 		if (this.waitUntillElementAppear(locatorType, srcLocator, maxWaitTime)) {
-			action.moveToElement(this.findElement("XPATH", srcLocator))
-					.moveToElement(this.findElement("XPATH", targetLocator)).click().build();
+			action.moveToElement(this.findElement(locatorType, srcLocator))
+					.moveToElement(this.findElement(locatorType, targetLocator)).click().build();
 		} else {
 			LoggerManager.get().error("WebElement {} is not enabled.", srcLocator);
 			assert false;

@@ -6,47 +6,49 @@ import com.framework.core.ui.WebActionsSelenium;
 
 public class BaseClass {
 
-	public WebActions globalDriver;
-	private int maxTime = 120;
+	public static WebActions globalDriver;
+	private static int maxTime = 120;
 
-	public void initiliazeBrowser(String browserType, boolean isHeadless) {
-		this.globalDriver = new WebActionsSelenium(DriverManager.getInstance(browserType, isHeadless).getDriver());
+	public static void initiliazeBrowser(String browserType, boolean isHeadless) {
+		DriverManager dManager=DriverManager.getInstance();
+		dManager.setDriver(browserType, isHeadless);
+		globalDriver = new WebActionsSelenium(dManager.getDriver());
 	}
 
-	public void fullScreenMode() {
-		this.globalDriver.maximiumBrowserWindow();
+	public static void fullScreenMode() {
+		globalDriver.maximiumBrowserWindow();
 	}
 
-	public void closeBrowser() {
+	public static void closeBrowser() {
 		DriverManager.quitDriver();
 	}
 
-	public void launchApp(String url) {
-		this.globalDriver.launchBrowser(url);
+	public static void launchApp(String url) {
+		globalDriver.launchBrowser(url);
 	}
 
-	public void clickElement(String locatorType, String locatorValue) {
-		this.globalDriver.click(locatorType, locatorValue, this.maxTime);
+	public static void clickElement(String locatorType, String locatorValue) {
+		globalDriver.click(locatorType, locatorValue, maxTime);
 	}
 
-	public void enterText(String locatorType, String locatorValue, String textToEnter) {
-		this.globalDriver.type(locatorType, locatorValue, textToEnter, maxTime);
+	public static void enterText(String locatorType, String locatorValue, String textToEnter) {
+		globalDriver.type(locatorType, locatorValue, textToEnter, maxTime);
 	}
 
-	public void hoverAndClickElement(String locatorType, String srcLocator, String targetLocator) {
-		this.globalDriver.hoverAndClick(locatorType, srcLocator, targetLocator, maxTime);
+	public static void hoverAndClickElement(String locatorType, String srcLocator, String targetLocator) {
+		globalDriver.hoverAndClick(locatorType, srcLocator, targetLocator, maxTime);
 	}
 
-	public void applyImplicitWait(long timeInSeconds) {
-		this.globalDriver.settingImplicitWait(timeInSeconds);
+	public static void applyImplicitWait(long timeInSeconds) {
+		globalDriver.settingImplicitWait(timeInSeconds);
 	}
 
-	public String getPageTitle() {
+	public static String getPageTitle() {
 		return globalDriver.getTitle();
 	}
 
-	public void captureSnap(String snapLocation) {
-		this.globalDriver.captureScreenshot(snapLocation);
+	public static void captureSnap(String snapLocation) {
+		globalDriver.captureScreenshot(snapLocation);
 	}
 
 }
