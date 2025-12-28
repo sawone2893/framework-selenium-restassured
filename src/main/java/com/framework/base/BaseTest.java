@@ -8,27 +8,25 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import com.framework.utils.EnvConfig;
 import com.framework.utils.LoggerManager;
 
 public class BaseTest {
 
-	private final String BROWSER_TYPE = "CHROME";
-	private final boolean IS_HEADLESS = false;
-	private final String APP_URL = "https://automationteststore.com/";
-	private final long implicitWaitInSeconds = 20;
-
 	@BeforeClass
 	public void setUp() {
+		// Load config
+		EnvConfig.init();
 		LoggerManager.get().info("Setting up browser...............................................");
-		BaseClass.initiliazeBrowser(this.BROWSER_TYPE, this.IS_HEADLESS);
+		BaseClass.initiliazeBrowser(EnvConfig.get("BROWSER_TYPE"), EnvConfig.getBool("IS_HEADLESS"));
 		BaseClass.fullScreenMode();
 	}
 
 	@BeforeMethod
 	public void appLaunch(Method method) {
 		LoggerManager.get().info("Open App Url...............................................");
-		BaseClass.launchApp(this.APP_URL);
-		BaseClass.applyImplicitWait(implicitWaitInSeconds);
+		BaseClass.launchApp(EnvConfig.get("APP_URL"));
+		BaseClass.applyImplicitWait(EnvConfig.getInt("IMPLICIT_WAIT_IN_SECONDS"));
 		LoggerManager.startTest(method.getName(), this.getClass());
 	}
 

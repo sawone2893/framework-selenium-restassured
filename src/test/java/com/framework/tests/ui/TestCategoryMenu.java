@@ -8,6 +8,7 @@ import com.framework.pages.HomePage;
 
 public class TestCategoryMenu extends BaseTest {
 	//https://www.youtube.com/watch?v=8YxJv4l-LOo&list=PLFGoYjJG_fqpc4jcqbeXqMIT3-60nfLr6&index=5
+	//@Test(retryAnalyzer=RetryAnalyzer.class)
 	@Test
 	public void testCategoryMenu() {
 		HomePage hp = new HomePage();
