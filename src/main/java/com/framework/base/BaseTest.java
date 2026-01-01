@@ -7,18 +7,21 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import com.framework.utils.EnvConfig;
 import com.framework.utils.LoggerManager;
 
 public class BaseTest {
 
+	@Parameters({"browserType","isHeadless"})
 	@BeforeClass
-	public void setUp() {
-		// Load config
+	public void setUp(@Optional("chrome")String browserType,@Optional("false")String isHeadless) {
+		//Load config
 		EnvConfig.init();
 		LoggerManager.get().info("Setting up browser...............................................");
-		BaseClass.initiliazeBrowser(EnvConfig.get("BROWSER_TYPE"), EnvConfig.getBool("IS_HEADLESS"));
+		BaseClass.initiliazeBrowser(browserType, Boolean.parseBoolean(isHeadless));
 		BaseClass.fullScreenMode();
 	}
 

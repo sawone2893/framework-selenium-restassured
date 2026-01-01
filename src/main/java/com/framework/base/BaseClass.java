@@ -12,7 +12,7 @@ public class BaseClass {
 	public static void initiliazeBrowser(String browserType, boolean isHeadless) {
 		DriverManager dManager=DriverManager.getInstance();
 		dManager.setDriver(browserType, isHeadless);
-		globalDriver = new WebActionsSelenium(dManager.getDriver());
+		globalDriver = new WebActionsSelenium(dManager.getDriver(),maxTime);
 	}
 
 	public static void fullScreenMode() {
@@ -28,15 +28,15 @@ public class BaseClass {
 	}
 
 	public static void clickElement(String locatorType, String locatorValue) {
-		globalDriver.click(locatorType, locatorValue, maxTime);
+		globalDriver.click(locatorType, locatorValue);
 	}
 
 	public static void enterText(String locatorType, String locatorValue, String textToEnter) {
-		globalDriver.type(locatorType, locatorValue, textToEnter, maxTime);
+		globalDriver.type(locatorType, locatorValue, textToEnter);
 	}
 
-	public static void hoverAndClickElement(String locatorType, String srcLocator, String targetLocator) {
-		globalDriver.hoverAndClick(locatorType, srcLocator, targetLocator, maxTime);
+	public static void hoverElement(String locatorType, String locator) {
+		globalDriver.hover(locatorType, locator);
 	}
 
 	public static void applyImplicitWait(long timeInSeconds) {

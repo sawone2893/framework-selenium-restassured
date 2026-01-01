@@ -5,6 +5,8 @@
 		<listener class-name="com.framework.listeners.RetryListener"></listener>
 	</listeners>
 	<test name="Test">
+	<parameter name="browserType" value="chrome"></parameter>
+	<parameter name="isHeadless" value="false"></parameter>
 		<classes>
 			<class name="com.framework.tests.ui.TestCategoryMenu" />
 		</classes>
