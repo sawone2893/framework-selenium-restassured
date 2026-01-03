@@ -16,6 +16,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>17</maven.compiler.release>
 		<suite.xml>testng.xml</suite.xml>
+		<poi.version>5.2.3</poi.version>
+		<poiooxml.version>5.2.3</poiooxml.version>
+		<xmlbeans.version>5.2.1</xmlbeans.version>
+		<json.version>20230227</json.version>
 	</properties>
 
 	<dependencyManagement>
@@ -42,10 +46,11 @@
 			<artifactId>rest-assured</artifactId>
 			<version>5.4.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.9.0</version>
+			<version>7.11.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -57,8 +62,6 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.15.1</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
@@ -74,8 +77,31 @@
 			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>2.20.0</version>
 		</dependency>
+<!-- Excel Handling Jars Start -->
 
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poiooxml.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>${xmlbeans.version}</version>
+		</dependency>
+		<!-- Excel Handling Jars End -->
+<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

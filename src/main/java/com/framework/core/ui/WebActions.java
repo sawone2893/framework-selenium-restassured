@@ -16,6 +16,8 @@ public interface WebActions {
 
 	boolean isElementPresent(String locatorType, String locatorValue);
 
+	public void waitForPageLoad(int time);
+
 	void waitForElement(int timeInSeconds);
 
 	boolean waitUntillElementAppear(String locatorType, String locatorValue, int maxWaitTime);
@@ -26,16 +28,51 @@ public interface WebActions {
 
 	void maximiumBrowserWindow();
 
-	void click(String locatorType, String locatorValue, int maxWaitTime);
+	void highlight(String locatorType, String locatorValue);
 
-	void type(String locatorType, String locatorValue, String text, int maxWaitTime);
+	void click(String locatorType, String locatorValue);
+
+	void type(String locatorType, String locatorValue, String text);
 
 	String getText(String locatorType, String locatorValue);
 
-	void hoverAndClick(String locatorType,String srcLocator, String targetLocator,int maxWaitTime);
+	void hover(String locatorType, String locator);
 
 	void settingImplicitWait(long timeInSeconds);
+
 	String getTitle();
+
 	void captureScreenshot(String snapLocation);
+
+	void doubleClick(String locatorType, String locator);
+
+	void rightClick(String locatorType, String locator);
+
+	void controlClick(String locatorType, String locator);
+
+	void dragAndDrop(String locatorType, String srcLocator, String targetLocator);
+
+	public Object executeJSAction(String script, Object... args);
+
+	void scrollVertically();
+
+	void scrollHorizontally();
+
+	void scrollIntoView(String locatorType, String locator);
+
+	void acceptAlert();
+
+	void dismissAlert();
+
+	void typeInAlert(String text);
+
+	String getAlertText();
+
+	void switchIframe(String name);
+
+	void switchIframe(int index);
+
+	void switchIframe(String locatorType, String locator);
+	String getBase64Screenshot();
 
 }
