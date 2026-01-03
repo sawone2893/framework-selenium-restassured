@@ -7,7 +7,7 @@ import com.framework.core.ui.WebActionsSelenium;
 public class BaseClass {
 
 	public static WebActions globalDriver;
-	private static int maxTime = 120;
+	private static int maxTime = 60;
 
 	public static void initiliazeBrowser(String browserType, boolean isHeadless) {
 		DriverManager dManager=DriverManager.getInstance();
@@ -49,6 +49,10 @@ public class BaseClass {
 
 	public static void captureSnap(String snapLocation) {
 		globalDriver.captureScreenshot(snapLocation);
+	}
+	
+	public static String getBase64Snap() {
+		return globalDriver.getBase64Screenshot();
 	}
 
 }

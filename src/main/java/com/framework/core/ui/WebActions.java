@@ -73,5 +73,6 @@ public interface WebActions {
 	void switchIframe(int index);
 
 	void switchIframe(String locatorType, String locator);
+	String getBase64Screenshot();
 
 }

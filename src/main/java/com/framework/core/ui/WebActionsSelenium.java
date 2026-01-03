@@ -418,4 +418,9 @@ public class WebActionsSelenium implements WebActions {
 		driver.switchTo().frame(this.findElement(locatorType, locator));
 	}
 
+	@Override
+	public String getBase64Screenshot() {
+		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+	}
+
 }

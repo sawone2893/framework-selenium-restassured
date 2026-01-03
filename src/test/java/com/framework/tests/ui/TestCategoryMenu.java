@@ -12,7 +12,7 @@ public class TestCategoryMenu extends BaseTest {
 	@Test
 	public void testCategoryMenu() {
 		HomePage hp = new HomePage();
-		hp.selectItemFromCategoryMenu("Makeup", "Cheeks");
+		hp.selectItemFromCategoryMenu("Makeup", "Cheeks1");
 		Assert.assertEquals(hp.getCurrentPageTitle(), "Cheeks", "Page title mismatch");
 	}
 
