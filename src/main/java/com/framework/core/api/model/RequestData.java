@@ -1,4 +1,4 @@
-package com.framework.core.api;
+package com.framework.core.api.model;
 
 import java.util.HashMap;
 import java.util.Map;

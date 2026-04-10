@@ -1,4 +1,7 @@
-package com.framework.core.api;
+package com.framework.core.api.client;
+
+import com.framework.core.api.model.ApiResponse;
+import com.framework.core.api.model.RequestData;
 
 public interface ApiClient {
 	ApiResponse get(String endpoint, RequestData requestData);

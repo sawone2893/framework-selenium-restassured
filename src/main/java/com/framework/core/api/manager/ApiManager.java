@@ -1,5 +1,7 @@
-package com.framework.core.api;
+package com.framework.core.api.manager;
 
+import com.framework.core.api.client.ApiClient;
+import com.framework.core.api.factory.ApiClientFactory;
 import com.framework.utils.EnvConfig;
 
 public class ApiManager {
@@ -9,7 +11,7 @@ public class ApiManager {
     public static ApiClient getClient() {
 
         if (client.get() == null) {
-            client.set(ApiClientFactory.getClient(EnvConfig.get("restassured")));
+            client.set(ApiClientFactory.getClient(EnvConfig.get("API.CLIENTTYPE")));
         }
 
         return client.get();

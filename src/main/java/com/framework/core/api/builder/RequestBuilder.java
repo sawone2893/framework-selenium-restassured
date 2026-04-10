@@ -1,4 +1,8 @@
-package com.framework.core.api;
+package com.framework.core.api.builder;
+
+import com.framework.core.api.manager.ApiManager;
+import com.framework.core.api.model.ApiResponse;
+import com.framework.core.api.model.RequestData;
 
 public class RequestBuilder {
 	

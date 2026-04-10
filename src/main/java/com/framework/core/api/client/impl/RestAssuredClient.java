@@ -1,9 +1,12 @@
-package com.framework.core.api;
+package com.framework.core.api.client.impl;
 
 import static io.restassured.RestAssured.given;
 
 import java.util.stream.Collectors;
 
+import com.framework.core.api.client.ApiClient;
+import com.framework.core.api.model.ApiResponse;
+import com.framework.core.api.model.RequestData;
 import com.framework.utils.EnvConfig;
 
 import io.restassured.response.Response;
@@ -14,7 +17,7 @@ public class RestAssuredClient implements ApiClient {
 	private RequestSpecification build(RequestData data) {
 
         RequestSpecification req = given()
-                .baseUri(EnvConfig.get("baseUrl"));
+                .baseUri(EnvConfig.get("API.BASEURL"));
 
         if (data.getHeaders() != null)
             req.headers(data.getHeaders());
