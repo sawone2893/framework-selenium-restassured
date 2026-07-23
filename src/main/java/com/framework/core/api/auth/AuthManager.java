@@ -4,7 +4,6 @@ import java.time.Instant;
 
 import com.framework.core.api.builder.RequestBuilderFactory;
 import com.framework.core.api.model.ApiResponse;
-import com.framework.utils.EnvConfig;
 
 public class AuthManager {
 	// Thread-safe token storage
@@ -15,11 +14,11 @@ public class AuthManager {
     // PUBLIC METHOD
     // ========================
 
-    public static String getToken() {
+    public static String getToken(String username,String password,String authEndpoint) {
 
         // If token is missing or expired → regenerate
         if (token.get() == null || isTokenExpired()) {
-            generateToken();
+            generateToken(username,password,authEndpoint);
         }
 
         return token.get();
@@ -29,13 +28,7 @@ public class AuthManager {
     // TOKEN GENERATION
     // ========================
 
-    private static void generateToken() {
-
-        String username = EnvConfig.get("API.AUTH.USERNAME");
-        String password = EnvConfig.get("API.AUTH.PASSWORD");
-
-        String authEndpoint = EnvConfig.get("API.AUTH.ENDPOINT");
-
+    private static void generateToken(String username,String password,String authEndpoint) {
         // Build request body
         String requestBody = String.format("""
                 {
